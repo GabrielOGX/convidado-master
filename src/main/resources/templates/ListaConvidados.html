@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-br"
-    xmlns="http://www.w3.org/1999/xhtml"
-    xmlns:th="http://www.thymeleaf.org">
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width"/>
@@ -14,37 +14,41 @@
 
     <!-- Última versão JavaScript compilada e minificada -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-
 </head>
 <body>
-    <div class="panel panel-default" style="margin: 10px">
-        <div class="panel-heading">
-            <h1 class="panel-title">Lista de Convidados</h1>
-        </div>
-        <div class="panel-body">
-            <form class="form-inline" method="POST" style="margin:20px 0" th:action="@/convidados" th:object="${convidado}">
-                <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Nome" th:field="*{nome}"/>
-                    <input type="text" class="form-control" placeholder="Acomponhante" th:field="*{quantidade_acomponhante}"/>
-                    <button type="submit" class="btn btn-primary">Adicionar
-                    </button>
-                </div>
-            </form>
-            <table class="table table-striped">
-                <thead>
-                    <th>Nome</th>
-                    <th>Acompanhantes</th>
-                </thead>
-                <tbody>
-                    <tr th:each="convidado : ${convidados}">
-                        <td th:text="${convidado.nome}"></td>
-                        <td th:text="${convidado.quantidade_acompanhantes}"></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-
+<div class="panel panel-default" style="margin: 10px">
+    <div class="panel-heading">
+        <h1 class="panel-title">Lista de Convidados</h1>
     </div>
-
+    <div class="panel-body">
+        <form class="form-inline" method="POST" style="margin:20px 0"
+              th:action="@{/convidados}" th:object="${convidado}">
+            <div class="form-group">
+                <input type="text" class="form-control"
+                       placeholder="Nome" th:field="*{nome}"/>
+                <input type="text" class="form-control"
+                       placeholder="Acompanhante"
+                       th:field="*{quantidade_acompanhantes}"/>
+                <button type="submit"
+                        class="btn btn-primary">Adicionar
+                </button>
+            </div>
+        </form>
+        <table class="table table-striped">
+            <thead>
+            <th>Nome</th>
+            <th>Acompanhantes</th>
+            </thead>
+            <tbody>
+            <tr th:each="convidado : ${convidados}">
+                <td th:text="${convidado.nome}"></td>
+                <td th:text="${convidado.quantidade_acompanhantes}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
 </body>
 </html>

@@ -8,7 +8,7 @@ import java.io.Serializable;
 
 @Entity
 public class Convidado implements Serializable {
-    //serialVersionUID está relacionado a interface Serializable
+    //serialVersionUID esta relacionado a interface Serializable
     private static final long serialVersionUID = 1L;
 
     @Id
